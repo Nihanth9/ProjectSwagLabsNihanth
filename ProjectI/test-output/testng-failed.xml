@@ -5,8 +5,10 @@
     <classes>
       <class name="producttest.ExampleTest">
         <methods>
+          <include name="ReportSetup"/>
           <include name="BrowserSetup"/>
           <include name="LoginSwagLabs"/>
+          <include name="ReportTerminate"/>
           <include name="LogoutSwagLabs"/>
           <include name="orderProducts"/>
           <include name="BrowserTermination"/>

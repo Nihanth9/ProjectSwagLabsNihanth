@@ -21,8 +21,7 @@ public class ListenerImplementation implements ITestListener{
 				String currentDate = sdf.format(new Date());
 				
 				System.out.println(currentDate);
-				
-				
+								
 				//Perform TypeCasting
 				TakesScreenshot ts = (TakesScreenshot)genericlibrary.BaseConfig.staticdriver;
 				
@@ -32,7 +31,7 @@ public class ListenerImplementation implements ITestListener{
 				//Create a permanent path for storing screenshot
 				File dest = new File("./Screenshots/Listner "+ currentDate +".png");
 				
-				//Copy the screenshot from Temp to permanent
+				//Copy the screenshot from Temporary to permanent
 				try {
 					FileHandler.copy(src, dest);
 				} catch (IOException e) {

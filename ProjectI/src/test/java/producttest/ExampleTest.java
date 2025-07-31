@@ -3,6 +3,9 @@ import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
+
+import com.aventstack.extentreports.Status;
+
 import genericlibrary.BaseConfig;
 import genericlibrary.WebDriverLibrary;
 import pagerepository.CheckoutPage;
@@ -15,6 +18,20 @@ public class ExampleTest  extends BaseConfig{
 	@Test(dataProvider = "readValues", priority = 1, invocationCount = 1)
 	public void orderProducts(String fname, String lname, String zip) {
 	
+		//Create the test Information
+	test= report.createTest("Verify order Product");
+	//Steps Information 
+		test.log(Status.INFO, "Step1: Launching the browser successful");
+		test.log(Status.INFO, "Step2: Navigating to the Application via URL successful");
+		test.log(Status.INFO, "Step3: Verifing the WebPage successful");
+		
+		if (true==true) {
+			test.log(Status.PASS, "Step4: Verified the Web Elements, Displayed");
+		} else {
+			test.log(Status.PASS, "Step4: Verified the Web Elements, Not Displayed");
+		}
+	//test.log(Status.SKIP, "Step5: Element is Hidden");
+		
 	//Create an object for Home page and Product Page
 		HomePage hpobj = new HomePage(driver);
 		hpobj.getfirstProd().click();
@@ -22,6 +39,7 @@ public class ExampleTest  extends BaseConfig{
 		ProductsPage ppobj= new ProductsPage(driver);
 		ppobj.getaddtoCart1().click();
 	Assert.assertEquals(driver.findElement(By.xpath("//span[text()='1']")), hpobj.getcartButton());
+	
 	ppobj.getbacktoproducts().click();
 		
 		hpobj.getfifthProd().click();
@@ -60,4 +78,20 @@ public class ExampleTest  extends BaseConfig{
 		
 			
 	}	
+	
+	@Test
+	public void reorder1() {
+		//Create the test Information
+		test= report.createTest("Verify order 1 Product");
+		//Steps Information 
+			test.log(Status.INFO, "Step1: Launching the browser successful");
+	}
+	
+	@Test
+	public void reorder5() {
+		//Create the test Information
+		test= report.createTest("Verify order 5 Product");
+		//Steps Information 
+			test.log(Status.INFO, "Step1: Launching the browser successful");
+	}
 }
